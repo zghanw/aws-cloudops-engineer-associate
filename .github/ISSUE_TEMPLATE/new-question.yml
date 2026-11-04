@@ -1,0 +1,33 @@
+name: Suggest a question
+description: Propose an original practice question
+labels: ["new-question"]
+body:
+  - type: markdown
+    attributes:
+      value: "Please write the question yourself. Real exam questions and content from paid practice tests or dumps can't be accepted."
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Exam domain
+      options:
+        - "1: Monitoring, Logging, Analysis, Remediation, and Performance Optimization"
+        - "2: Reliability and Business Continuity"
+        - "3: Deployment, Provisioning, and Automation"
+        - "4: Security and Compliance"
+        - "5: Networking and Content Delivery"
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Question and options
+      description: The scenario, the question, and 4 options (or 5 for a Select TWO question). Mark the correct one(s).
+    validations:
+      required: true
+  - type: textarea
+    id: explanation
+    attributes:
+      label: Explanation and source
+      description: Why the answer is right, why the others are wrong, and a link to the exam guide or AWS docs.
+    validations:
+      required: true

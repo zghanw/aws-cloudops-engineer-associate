@@ -1,0 +1,13 @@
+# Dev tooling
+.gstack/
+.impeccable/
+.claude/
+research/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+node_modules/
+.playwright-mcp/
