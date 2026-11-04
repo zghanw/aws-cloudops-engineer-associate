@@ -143,7 +143,7 @@ details li .why { font-weight: 400; color: var(--muted); }
 kbd { font: .75rem ui-monospace, monospace; border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
 @media (max-width: 520px) {
   h1 { font-size: 1.625rem; } h2 { font-size: 1.125rem; } .score { font-size: 2.75rem; }
-  header { flex-wrap: wrap; padding: 10px 12px; }
+  header { flex-wrap: wrap; padding: 10px 12px; column-gap: 8px; }
   body:not(.session) header { position: static; }
   header nav { order: 3; width: 100%; }
   header nav a { flex: 1; min-height: 44px; display: grid; place-items: center; padding: 0; }
