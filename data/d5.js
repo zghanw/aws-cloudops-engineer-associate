@@ -508,7 +508,7 @@ window.QUESTIONS = (window.QUESTIONS || []).concat([
       "An AWS WAF rule group that rewrites URLs and adds the response headers"],
   a: [0],
   r: ["CloudFront Functions run lightweight JavaScript at edge locations on viewer request and viewer response events, with sub-millisecond startup and very high scale, at a lower price than Lambda@Edge. Redirects and header changes are typical uses. A response headers policy can also add security headers without code.",
-      "Lambda@Edge suits heavier logic, such as network calls, but it costs more and runs in Regional edge caches for origin events, so it is not the cheapest choice for simple logic.",
+      "Lambda@Edge suits heavier logic, such as network calls, but it costs more, so it is not the cheapest choice for simple logic.",
       "Sending every request to an origin function adds latency and cost and removes the benefit of edge caching.",
       "AWS WAF filters requests. It does not rewrite URLs or add response headers to responses."] },
 
@@ -629,7 +629,7 @@ window.QUESTIONS = (window.QUESTIONS || []).concat([
       "Add a geo restriction so that only users near the origin can call the endpoint.",
       "Replace the ALB origin with an S3 bucket that serves the reporting endpoint."],
   a: [0],
-  r: ["CloudFront waits for the origin response timeout, 30 seconds by default, before it gives up and returns 504 Gateway Timeout. Raising the timeout above 45 seconds (values above 60 seconds need a quota increase) lets the report finish. Making the report asynchronous is a better long-term fix.",
+  r: ["CloudFront waits for the origin response timeout, 30 seconds by default, before it gives up and returns 504 Gateway Timeout. Raising the timeout above 45 seconds (values above 120 seconds need a quota increase) lets the report finish. Making the report asynchronous is a better long-term fix.",
       "TTL affects caching of successful responses. It does not let slow requests finish.",
       "Distance to the origin is not the cause. The origin itself takes 45 seconds.",
       "S3 cannot run the report generation logic."] },

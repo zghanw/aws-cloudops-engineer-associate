@@ -131,7 +131,7 @@ function info() {
     </ul>
     <h2 class="sub">How the questions are written</h2>
     <p>Every question is original and written against the public exam guide. None come from the real exam, paid courses, or dumps. Each one is a hands-on operations scenario: what you would configure, check, or fix, and why the other options fall short. Most questions test long-standing operations skills, and a few cover newer services that the exam guide names.</p>
-    <p>The questions were drafted with AI help and reviewed against the exam guide. The newest services and the facts most likely to change were checked against current AWS documentation, but not every question has been checked that way, so mistakes are possible. This is practice, not a predictor of your exam result. For the closest look at real exam style, use the Official Practice Question Set linked above.</p>
+    <p>The questions were drafted with AI help. An AI-run check then compared each question with current AWS documentation, using one main source per question, and fixed what it found. No person has reviewed them, so mistakes are possible. This is practice, not a predictor of your exam result. For the closest look at real exam style, use the Official Practice Question Set linked above.</p>
     <p>The whole question bank is open source on <a href="${REPO}" target="_blank" rel="noopener">GitHub</a>.</p>
     <p>Think a question is wrong? <a href="${REPO}/issues/new/choose" target="_blank" rel="noopener">Report it</a> with the question ID shown above each question.</p>
     <h2 class="sub">Why it's free</h2>

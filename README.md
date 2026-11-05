@@ -61,7 +61,7 @@ Good SOA-C03 practice material usually sits behind a paywall, and dumps of real 
 
 Every question is original and written against the public [SOA-C03 exam guide](https://docs.aws.amazon.com/aws-certification/latest/sysops-administrator-associate-03/sysops-administrator-associate-03.html), covering every task and skill in all five domains. None come from the real exam, paid courses, or dumps. Each one has a short operations scenario, a clear requirement, and options of similar length where every wrong answer is a plausible action that fails one requirement. The right answer is not the longest option, and `check.js` enforces that on every change. A recently launched feature is the right answer only where the exam guide names it. Otherwise the question tests the standard approach, and the explanation mentions the newer option.
 
-The questions were drafted with AI help and reviewed against the exam guide. The newest services and the facts most likely to change were checked against current AWS documentation, but not every question has been checked that way, so mistakes are possible.
+The questions were drafted with AI help. An AI-run check then compared each question with current AWS documentation, using one main source per question, and fixed what it found. No person has reviewed them, so mistakes are possible.
 
 This is practice, not a predictor of your exam result. For the closest look at real exam style, use AWS's Official Practice Question Set, linked below.
 
