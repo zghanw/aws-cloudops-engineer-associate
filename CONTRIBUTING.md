@@ -14,12 +14,13 @@ You don't need to write code for the first two. Opening an issue is enough.
 - **Don't copy from paid practice tests, dumps, or courses.** Original wording only.
 - **Tie it to the exam guide.** Each question should test a skill listed in the [official SOA-C03 exam guide](https://docs.aws.amazon.com/aws-certification/latest/sysops-administrator-associate-03/sysops-administrator-associate-03.html), using services from its in-scope list. Link your source for any fact.
 - **Test operational judgment, not trivia.** The real exam asks what a CloudOps engineer should configure, check, or fix. Avoid questions that only test a number or a name.
+- **Test the standard answer first.** Make a recently launched feature the right answer only if the exam guide names it. Otherwise, test the long-standing approach and mention the newer option in the rationale. Don't add a condition whose only purpose is to rule out the standard answer.
 - **Keep it current.** Don't make a deprecated feature or a service that is closed to new customers the right answer (for example, Performance Insights is now CloudWatch Database Insights, and Systems Manager Incident Manager no longer takes new customers).
 - **Explain every option.** Each option gets its own rationale: why it's right, or which requirement it fails.
 
 ## Writing style
 
-The questions follow the style of AWS's official practice questions, so practice here feels like the real exam.
+Questions use the exam's format: a short scenario, a clear requirement, and plausible options. AWS's Official Practice Question Set is a good reference for the style.
 
 **The scenario.** Two to five short, plain sentences in the present tense, such as "A company runs..." Put each constraint in its own sentence ("The company must...", "The company wants to... without..."). Use the exam's short service names, such as Amazon SNS and AWS KMS. Then a blank line, then the question on its own line.
 

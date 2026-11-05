@@ -16,7 +16,7 @@ const FACTS = `
     <li>Question types: multiple choice (1 correct out of 4) and multiple response (2 or more correct out of 5 or more; you must pick all of them to get credit). There are no exam labs.</li>
     <li>Scaled score 100 to 1,000; <b>720 to pass</b>. Scoring is compensatory, so you don't need to pass each domain. There's no penalty for guessing, so answer every question.</li>
     <li>SOA-C03 replaced SOA-C02 (the SysOps Administrator exam) on 30 Sep 2025. The cost and performance domain was folded into Domain 1.</li>
-    <li>Exam guide version 1.2 added Amazon Bedrock, AWS DevOps Agent, AWS Security Agent, Kiro, Amazon S3 Files, and the AWS Health Dashboard to the in-scope list. Guide changes reach the exam at least 1 month after they're published.</li>`;
+    <li>The 2026 exam guide revisions added Amazon Bedrock, AWS DevOps Agent, AWS Security Agent, Kiro, and the AWS Health Dashboard to the in-scope services, and Amazon S3 Files to the skills. Guide changes reach the exam at least 1 month after they're published.</li>`;
 const Q = window.QUESTIONS || [];
 const app = document.getElementById('app');
 const timerEl = document.getElementById('timer');
@@ -130,7 +130,9 @@ function info() {
       <li>Keyboard: <kbd>1</kbd> to <kbd>5</kbd> or <kbd>A</kbd> to <kbd>E</kbd> to select, <kbd>Enter</kbd> to check or go to the next question.</li>
     </ul>
     <h2 class="sub">How the questions are written</h2>
-    <p>Every question is original and written against the public exam guide. None come from the real exam, paid courses, or dumps. Each one is a hands-on operations scenario: what you would configure, check, or fix, and why the other options fall short. The questions were drafted with AI help, then checked one by one against the exam guide and current AWS documentation. The whole question bank is open source on <a href="${REPO}" target="_blank" rel="noopener">GitHub</a>.</p>
+    <p>Every question is original and written against the public exam guide. None come from the real exam, paid courses, or dumps. Each one is a hands-on operations scenario: what you would configure, check, or fix, and why the other options fall short. Most questions test long-standing operations skills, and a few cover newer services that the exam guide names.</p>
+    <p>The questions were drafted with AI help and reviewed against the exam guide. The newest services and the facts most likely to change were checked against current AWS documentation, but not every question has been checked that way, so mistakes are possible. This is practice, not a predictor of your exam result. For the closest look at real exam style, use the Official Practice Question Set linked above.</p>
+    <p>The whole question bank is open source on <a href="${REPO}" target="_blank" rel="noopener">GitHub</a>.</p>
     <p>Think a question is wrong? <a href="${REPO}/issues/new/choose" target="_blank" rel="noopener">Report it</a> with the question ID shown above each question.</p>
     <h2 class="sub">Why it's free</h2>
     <p>Practice should be free for anyone who learns with their heart and is willing to put in the time. No sign-up, no ads, no paywall.</p>`;
@@ -251,10 +253,15 @@ function results() {
     const g = graded.filter(x => x.q.d == d);
     return g.length ? `<div class="row"><span>D${d} · ${m.name}</span><strong>${g.filter(ok).length}/${g.length}</strong><div class="meter"><i style="width:${pct(g.filter(ok).length, g.length)}%"></i></div></div>` : '';
   }).join('');
+  // Text labels as well as color, so the review survives copying, printing, and screen readers.
+  const mark = (x, oi) => {
+    const right = x.q.a.includes(oi), mine = x.pick.includes(oi);
+    return right || mine ? ` <span class="tag">${right && mine ? 'Your answer, correct' : right ? 'Correct answer' : 'Your answer'}</span>` : '';
+  };
   const review = graded.map(x => `
     <details class="${ok(x) ? 'ok' : 'bad'}" ${ok(x) ? '' : 'open'}>
-      <summary>${ok(x) ? '<span class="yes">✓</span>' : '<span class="no">✗</span>'} ${esc(x.q.q.replace(/\n\n/g, ' '))}</summary>
-      <ul>${x.order.map(oi => `<li class="${x.q.a.includes(oi) ? 'right' : x.pick.includes(oi) ? 'wrong' : ''}">${esc(x.q.o[oi])}<span class="why">${esc(x.q.r[oi])}</span></li>`).join('')}</ul>
+      <summary>${ok(x) ? '<span class="yes">✓</span>' : '<span class="no">✗</span>'} ${esc(x.q.q.replace(/\n\n/g, ' '))} <span class="muted small">#${x.q.id}</span>${x.pick.length ? '' : ' <span class="tag">Not answered</span>'}</summary>
+      <ul>${x.order.map(oi => `<li class="${x.q.a.includes(oi) ? 'right' : x.pick.includes(oi) ? 'wrong' : ''}">${esc(x.q.o[oi])}${mark(x, oi)}<span class="why">${esc(x.q.r[oi])}</span></li>`).join('')}</ul>
     </details>`).join('');
   const actions = missed
     ? `<button class="btn primary" data-go="missed">Review missed (${missed})</button><button class="btn" data-go="home">Back to practice</button>`
@@ -263,7 +270,7 @@ function results() {
     <h1>Results</h1>
     ${graded.length ? `
       <div class="score">${score}%</div>
-      <p class="muted">${right} of ${graded.length} correct.${S.mode === 'mock' ? ' The real exam reports a scaled score (100 to 1,000, pass 720) that is not a simple percentage, so treat this raw % as a rough guide and aim for 80%+.' : ''}</p>
+      <p class="muted">${right} of ${graded.length} correct.${S.mode === 'mock' ? ' The real exam reports a scaled score (100 to 1,000, pass 720) that is not a simple percentage. These are original practice questions, not exam questions, so use this score to find weak areas, not to predict your result.' : ''}</p>
       <div class="rows">${rows}</div>
       <div class="actions">${actions}</div>
       <h2>Review</h2>${review}` : `<p class="muted">No questions answered.</p><div class="actions">${actions}</div>`}`;

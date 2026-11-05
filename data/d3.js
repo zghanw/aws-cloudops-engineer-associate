@@ -399,8 +399,8 @@ window.QUESTIONS = (window.QUESTIONS || []).concat([
       "Daily deployments into every account do not let developers launch environments on demand, and they create environments that might not be needed."] },
 
 { id: "d3-34", d: 3,
-  q: "A company runs an Amazon ECS service behind an Application Load Balancer. Each new version must run alongside the current version, test traffic must be validated before production traffic moves, and the release must roll back quickly if alarms fire after the move.\n\nWhich deployment approach will meet these requirements?",
-  o: ["Use an ECS blue/green deployment with a test listener rule, lifecycle hooks, and CloudWatch alarms for rollback.",
+  q: "A company runs an Amazon ECS service behind an Application Load Balancer. Each new version must run alongside the current version and be tested before it receives production traffic. The company must be able to roll back quickly.\n\nWhich deployment approach will meet these requirements?",
+  o: ["Use an ECS blue/green deployment that tests the new version before it shifts production traffic.",
       "Use an ECS rolling update with a minimum healthy percent of 100 and a maximum percent of 200.",
       "Stop the service, update the task definition, and start the service again during a maintenance window.",
       "Increase the service's desired count, and register the new task definition with the same target group."],

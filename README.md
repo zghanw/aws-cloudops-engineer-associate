@@ -41,7 +41,8 @@ Good SOA-C03 practice material usually sits behind a paywall, and dumps of real 
 - Practice one domain at a time. After each answer, every option shows why it's right or wrong.
 - Take a mock exam in the real format: 65 questions in 130 minutes, split by the official domain weights.
 - Get both multiple-choice and multiple-response questions, like the real exam.
-- Practice what's new in exam guide version 1.2: AWS DevOps Agent, Kiro, AWS Security Agent, Amazon S3 Files, Amazon Bedrock monitoring, CloudWatch Database Insights (which replaced Performance Insights), regional NAT gateways, and the new AWS Security Hub alongside Security Hub CSPM.
+- Build on the long-standing operations skills that make up most of the bank, with some questions on newer services the exam guide names: AWS DevOps Agent, Kiro, AWS Security Agent, Amazon S3 Files, and Amazon Bedrock monitoring.
+- Review each result with your answer and the correct answer labeled.
 - Come back to the questions you missed. They're saved in your browser.
 - Use it on a phone or a laptop, in light or dark mode.
 
@@ -58,11 +59,13 @@ Good SOA-C03 practice material usually sits behind a paywall, and dumps of real 
 
 ## How the questions are written
 
-Every question is original and written against the public [SOA-C03 exam guide](https://docs.aws.amazon.com/aws-certification/latest/sysops-administrator-associate-03/sysops-administrator-associate-03.html), covering every task and skill in all five domains. None come from the real exam, paid courses, or dumps. They follow the style of AWS's official practice questions: a short operations scenario, a clear requirement, and options of similar length where every wrong answer is a plausible action that fails one requirement. The right answer is not the longest option, and `check.js` enforces that on every change.
+Every question is original and written against the public [SOA-C03 exam guide](https://docs.aws.amazon.com/aws-certification/latest/sysops-administrator-associate-03/sysops-administrator-associate-03.html), covering every task and skill in all five domains. None come from the real exam, paid courses, or dumps. Each one has a short operations scenario, a clear requirement, and options of similar length where every wrong answer is a plausible action that fails one requirement. The right answer is not the longest option, and `check.js` enforces that on every change. A recently launched feature is the right answer only where the exam guide names it. Otherwise the question tests the standard approach, and the explanation mentions the newer option.
 
-The questions were drafted with AI help, then checked one by one against the exam guide and current AWS documentation.
+The questions were drafted with AI help and reviewed against the exam guide. The newest services and the facts most likely to change were checked against current AWS documentation, but not every question has been checked that way, so mistakes are possible.
 
-Question bank last reviewed: 4 November 2026, against exam guide version 1.2 (published 29 October 2026).
+This is practice, not a predictor of your exam result. For the closest look at real exam style, use AWS's Official Practice Question Set, linked below.
+
+Question bank last reviewed: 5 November 2026, against exam guide version 1.2 (published 29 October 2026).
 
 Think a question is wrong? [Open an issue](https://github.com/zghanw/aws-cloudops-engineer-associate/issues/new/choose) with the question ID shown above each question. You don't need to write any code.
 
