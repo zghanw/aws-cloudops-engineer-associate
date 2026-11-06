@@ -131,6 +131,7 @@ function info() {
     </ul>
     <h2 class="sub">How the questions are written</h2>
     <p>Every question is original and written against the public exam guide. None come from the real exam, paid courses, or dumps. Each one is a hands-on operations scenario: what you would configure, check, or fix, and why the other options fall short. Most questions test long-standing operations skills, and a few cover newer services that the exam guide names.</p>
+    <p>The wording follows AWS exam conventions, such as full service names and qualifiers like LEAST operational overhead. The bank focuses on native AWS tools. It has no Terraform questions, even though Skill 3.1.6 of the guide names Terraform, so read up on its basics separately.</p>
     <p>The questions were drafted with AI help. An AI-run check then compared each question with current AWS documentation, using one main source per question, and fixed what it found. No person has reviewed them, so mistakes are possible. This is practice, not a predictor of your exam result. For the closest look at real exam style, use the Official Practice Question Set linked above.</p>
     <p>The whole question bank is open source on <a href="${REPO}" target="_blank" rel="noopener">GitHub</a>.</p>
     <p>Think a question is wrong? <a href="${REPO}/issues/new/choose" target="_blank" rel="noopener">Report it</a> with the question ID shown above each question.</p>

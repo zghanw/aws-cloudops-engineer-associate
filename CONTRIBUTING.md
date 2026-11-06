@@ -22,14 +22,15 @@ You don't need to write code for the first two. Opening an issue is enough.
 
 Questions use the exam's format: a short scenario, a clear requirement, and plausible options. AWS's Official Practice Question Set is a good reference for the style.
 
-**The scenario.** Two to five short, plain sentences in the present tense, such as "A company runs..." Put each constraint in its own sentence ("The company must...", "The company wants to... without..."). Use the exam's short service names, such as Amazon SNS and AWS KMS. Then a blank line, then the question on its own line.
+**The scenario.** Two to five short, plain sentences in the present tense, usually starting "A company runs..." or "A company has..." Put each constraint in its own sentence ("The company must...", "The company needs to..."). Use the exam's service names on first mention, such as Amazon SNS and AWS KMS, and the short form after that. Write "a CloudOps engineer" until the scenario has introduced one, then "the CloudOps engineer". Then a blank line, then the question on its own line.
 
-**The question.** Short, with the qualifier in capitals: "What should a CloudOps engineer do FIRST?", "What is the MOST likely cause?", "Which solution will meet these requirements with the LEAST operational overhead?"
+**The question.** Short, with the qualifier in capitals. Prefer the standard forms: "Which solution will meet these requirements?", "What should a CloudOps engineer do to meet this requirement?", "What should a CloudOps engineer do to resolve this issue?", "What is the MOST likely cause of this issue?", "Which solution will meet these requirements with the LEAST operational overhead?", "Which combination of steps will meet these requirements? (Select TWO.)"
 
 **The options.** This is where most practice tests go wrong.
 
 - Multiple choice has exactly 4 options. Multiple response has 5 options with 2 correct, like the real exam.
-- Write all options in the same form: all imperatives, all noun phrases, or all "A rule that..."
+- Test native AWS features. Don't write a question where a third-party tool, such as Terraform, is the answer.
+- Write all options in the same form: all imperatives, all noun phrases, or all "A rule that..." Split multi-step actions into sentences ("Create a rule. Add a target."), and use "to" for a purpose instead of "so that".
 - Keep them about the same length. The right answer must not be the longest, the most detailed, or the most carefully hedged. `node check.js` fails the build if right answers stand out by length.
 - Every wrong option should be a real action that fails one requirement in the scenario, for example one that is reactive instead of preventive, needs custom code when a managed feature exists, breaks least privilege, or doesn't work the way the option claims. No joke options.
 
