@@ -12,13 +12,14 @@
 <meta property="og:image" content="https://zghanw.github.io/aws-cloudops-engineer-associate/docs/social-preview.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#15191f">
-<link rel="icon" href="data:,"><!-- ponytail: empty icon until the logo exists; stops the favicon.ico 404 -->
+<link rel="icon" href="docs/logo.png">
 <script>{ let t; try { t = JSON.parse(localStorage.getItem('soa:theme')); } catch {} document.documentElement.dataset.theme = t || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); }</script>
 <link rel="stylesheet" href="style.css">
+<style>/* style.css is shared with AIB-C01. This header is a few pixels wider, so narrow phones drop the logo during a session to keep one row. */ @media (max-width: 380px) { body.session .brand img { display: none; } }</style>
 </head>
 <body>
 <header>
-  <a href="#/" class="brand">SOA-C03&nbsp;<span>Practice</span></a>
+  <a href="#/" class="brand"><img src="docs/logo.png" alt="" width="30" height="33">SOA-C03&nbsp;<span>Practice</span></a>
   <nav aria-label="Main"><a href="#/">Practice</a><a href="#/mock">Mock exam</a><a href="#/info">Exam info</a></nav>
   <span id="timer" aria-live="off"></span>
   <button class="btn" id="end" data-act="finish" hidden></button>

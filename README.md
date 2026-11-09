@@ -1,5 +1,10 @@
 <div align="center">
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/logo-readme-dark.png">
+  <img alt="SOA-C03 Practice logo" src="docs/logo-readme.png" width="200">
+</picture>
+
 # SOA-C03 Practice
 
 Free practice questions and a timed mock exam for the **AWS Certified CloudOps Engineer - Associate (SOA-C03)** exam.<br>
