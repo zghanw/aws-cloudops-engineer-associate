@@ -64,13 +64,11 @@ Good SOA-C03 practice material usually sits behind a paywall, and dumps of real 
 
 ## How the questions are written
 
-Every question is original and written against the public [SOA-C03 exam guide](https://docs.aws.amazon.com/aws-certification/latest/sysops-administrator-associate-03/sysops-administrator-associate-03.html), covering the tasks and skills in all five domains. None come from the real exam, paid courses, or dumps. Each one has a short operations scenario, a clear requirement, and options of similar length where every wrong answer is a plausible action that fails one requirement. The right answer is not the longest option, and `check.js` enforces that on every change. A recently launched feature is the right answer only where the exam guide names it. Otherwise the question tests the standard approach, and the explanation mentions the newer option.
+Every question is original and written against the public [SOA-C03 exam guide](https://docs.aws.amazon.com/aws-certification/latest/sysops-administrator-associate-03/sysops-administrator-associate-03.html). None come from the real exam, paid courses, or dumps. Each one has a short operations scenario, a clear requirement, and options of similar length where every wrong answer is a plausible action that fails one requirement. The right answer is not the longest option, and `check.js` enforces that on every change.
 
-The wording follows AWS exam conventions: a company scenario, full service names on first mention, constraints stated with "must", and qualifiers such as LEAST operational overhead, MOST cost-effectively, and (Select TWO.). The bank focuses on native AWS tools. It has no Terraform questions, even though Skill 3.1.6 of the guide names Terraform, so read up on its basics separately.
+The questions were drafted with AI help, then checked one by one against the exam guide and AWS documentation.
 
-The questions were drafted with AI help. An AI-run check then compared each question with current AWS documentation, using one main source per question, and fixed what it found. I then reviewed the questions myself, but mistakes are still possible.
-
-This is practice, not a predictor of your exam result. For the closest look at real exam style, use AWS's Official Practice Question Set, linked below.
+The wording follows AWS exam conventions. A recently launched feature is the right answer only where the exam guide names it, and the bank sticks to native AWS tools. It has no Terraform questions, even though Skill 3.1.6 of the guide names Terraform, so read up on its basics separately.
 
 Question bank last reviewed: 9 November 2026, against exam guide version 1.2 (published 29 October 2026).
 
@@ -96,7 +94,7 @@ Then open http://localhost:8000. Run `node check.js` to validate the question ba
 
 ## Contributing
 
-Questions live in `data/d1.js` to `data/d5.js`, one file per domain. [CONTRIBUTING.md](CONTRIBUTING.md) covers the format and the ground rules. To suggest a question or report a wrong one, use the [issue forms](https://github.com/zghanw/aws-cloudops-engineer-associate/issues/new/choose).
+Questions live in `data/d1.js` to `data/d5.js`, one file per domain, and exam details such as the domain weights live in `exam.js`. [CONTRIBUTING.md](CONTRIBUTING.md) covers the format and the ground rules. To suggest a question or report a wrong one, use the [issue forms](https://github.com/zghanw/aws-cloudops-engineer-associate/issues/new/choose).
 
 If this helped you prepare, a star helps other candidates find it.
 

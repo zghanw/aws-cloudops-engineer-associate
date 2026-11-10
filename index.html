@@ -15,7 +15,6 @@
 <link rel="icon" href="docs/logo.png">
 <script>{ let t; try { t = JSON.parse(localStorage.getItem('soa:theme')); } catch {} document.documentElement.dataset.theme = t || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); }</script>
 <link rel="stylesheet" href="style.css">
-<style>/* style.css is shared with AIB-C01. This header is a few pixels wider, so narrow phones drop the logo during a session to keep one row. */ @media (max-width: 380px) { body.session .brand img { display: none; } }</style>
 </head>
 <body>
 <header>
@@ -31,6 +30,7 @@
 </header>
 <main id="app"></main>
 <footer>Unofficial study aid. Not affiliated with or endorsed by AWS. Questions are original, written against the public exam guide.<br><a href="#/info">Exam info</a> · <a href="https://github.com/zghanw/aws-cloudops-engineer-associate" target="_blank" rel="noopener">GitHub</a></footer>
+<script src="exam.js"></script>
 <script src="data/d1.js"></script>
 <script src="data/d2.js"></script>
 <script src="data/d3.js"></script>

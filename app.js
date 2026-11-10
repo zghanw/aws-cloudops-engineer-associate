@@ -1,22 +1,7 @@
 'use strict';
-const DOMAINS = {
-  1: { name: 'Monitoring, Logging, Analysis, Remediation, and Performance Optimization', weight: 22 },
-  2: { name: 'Reliability and Business Continuity', weight: 22 },
-  3: { name: 'Deployment, Provisioning, and Automation', weight: 22 },
-  4: { name: 'Security and Compliance', weight: 16 },
-  5: { name: 'Networking and Content Delivery', weight: 18 },
-};
-// Real exam format: 65 questions (50 scored, 15 unscored) in 130 minutes. The mock scores all 65.
-const MOCK = { count: 65, minutes: 130 };
-const GUIDE = 'https://docs.aws.amazon.com/aws-certification/latest/sysops-administrator-associate-03/sysops-administrator-associate-03.html';
-const REPO = 'https://github.com/zghanw/aws-cloudops-engineer-associate';
-// Verified against the official SOA-C03 exam guide (version 1.2, 29 Oct 2026) and certification page, 2026-11-04.
-const FACTS = `
-    <li><b>Format:</b> 65 questions in 130 minutes, USD 150. 50 questions are scored and 15 are unscored, and you can't tell which is which.</li>
-    <li>Question types: multiple choice (1 correct out of 4) and multiple response (2 or more correct out of 5 or more; you must pick all of them to get credit). There are no exam labs.</li>
-    <li>Scaled score 100 to 1,000; <b>720 to pass</b>. Scoring is compensatory, so you don't need to pass each domain. There's no penalty for guessing, so answer every question.</li>
-    <li>SOA-C03 replaced SOA-C02 (the SysOps Administrator exam) on 30 Sep 2025. The cost and performance domain was folded into Domain 1.</li>
-    <li>The 2026 exam guide revisions added Amazon Bedrock, AWS DevOps Agent, AWS Security Agent, Kiro, and the AWS Health Dashboard to the in-scope services, and Amazon S3 Files to the skills. Guide changes reach the exam at least 1 month after they're published.</li>`;
+// Exam-specific settings and text live in exam.js. This file, check.js and style.css are the same in every practice site.
+const EXAM = window.EXAM;
+const { domains: DOMAINS, mock: MOCK, guide: GUIDE, repo: REPO, facts: FACTS } = EXAM;
 const Q = window.QUESTIONS || [];
 const app = document.getElementById('app');
 const timerEl = document.getElementById('timer');
@@ -24,8 +9,8 @@ const endBtn = document.getElementById('end');
 const themeBtn = document.getElementById('theme');
 
 const store = {
-  get(k, d) { try { return JSON.parse(localStorage.getItem('soa:' + k)) ?? d; } catch { return d; } },
-  set(k, v) { try { localStorage.setItem('soa:' + k, JSON.stringify(v)); } catch {} },
+  get(k, d) { try { return JSON.parse(localStorage.getItem(EXAM.key + ':' + k)) ?? d; } catch { return d; } },
+  set(k, v) { try { localStorage.setItem(EXAM.key + ':' + k, JSON.stringify(v)); } catch {} },
 };
 const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -72,13 +57,13 @@ function home() {
   leave();
   const missed = missedIds().length, best = store.get('best', {});
   app.innerHTML = `
-    <h1>SOA-C03 practice questions</h1>
-    <p class="muted">AWS Certified CloudOps Engineer - Associate. ${Q.length} original scenario questions with a rationale for every option. Free, no sign-up, and your progress stays in this browser.</p>
+    <h1>${EXAM.code} practice questions</h1>
+    <p class="muted">${EXAM.name}. ${Q.length} original scenario questions with a rationale for every option. Free, no sign-up, and your progress stays in this browser.</p>
     <div class="actions">
       <button class="btn primary" data-go="all">Start mixed practice</button>
       ${missed ? `<button class="btn" data-go="missed">Review missed (${missed})</button>` : ''}
     </div>
-    <p class="strip">Exam: 65 questions · 130 min · 720/1000 to pass · <a href="#/info">Exam info</a></p>
+    <p class="strip">${EXAM.strip} · <a href="#/info">Exam info</a></p>
     <h2 class="sub">Practice by domain</h2>
     <div class="domains">${Object.entries(DOMAINS).map(([d, m]) => `
       <button class="drow" data-go="domain" data-d="${d}">
@@ -94,7 +79,7 @@ function lobby() {
   leave();
   const counts = mockCounts(Math.min(MOCK.count, Q.length));
   app.innerHTML = `
-    <h1>Mock exam</h1>
+    <h1>${MOCK.title}</h1>
     <ul class="rules">
       <li>${MOCK.count} questions in ${MOCK.minutes} minutes, mixed by the official domain weights.</li>
       <li>No answer feedback until you submit.</li>
@@ -104,7 +89,7 @@ function lobby() {
     </ul>
     <div class="rows">${Object.entries(DOMAINS).map(([d, m], i) => `<div class="row"><span>D${d} · ${m.name}</span><strong>${counts[i]}</strong></div>`).join('')}</div>
     <div class="actions"><button class="btn primary" data-go="mock">Start mock exam</button></div>
-    <p class="muted small">The format follows the <a href="${GUIDE}" target="_blank" rel="noopener">official exam guide</a>. The real exam has 15 unscored questions mixed in; here all ${MOCK.count} count.</p>`;
+    <p class="muted small">${MOCK.note}</p>`;
 }
 
 function info() {
@@ -116,10 +101,7 @@ function info() {
     <h2 class="sub">Domains and weights</h2>
     <div class="rows">${Object.entries(DOMAINS).map(([d, m]) => `<div class="row"><span>D${d} · ${m.name}</span><strong>${m.weight}%</strong></div>`).join('')}</div>
     <h2 class="sub">Official resources</h2>
-    <ul>
-      <li><a href="${GUIDE}" target="_blank" rel="noopener">SOA-C03 exam guide</a>, including the in-scope and out-of-scope service lists</li>
-      <li><a href="https://aws.amazon.com/certification/certified-cloudops-engineer-associate/" target="_blank" rel="noopener">AWS Certified CloudOps Engineer - Associate certification page</a></li>
-      <li><a href="https://skillbuilder.aws/category/exam-prep/cloudops-engineer-associate-SOA-C03" target="_blank" rel="noopener">Exam prep plan on AWS Skill Builder</a>, which includes the Official Practice Question Set (sign-in required)</li>
+    <ul>${EXAM.resources}
     </ul>
     <h2 class="sub">How this site works</h2>
     <ul>
@@ -130,10 +112,7 @@ function info() {
       <li>Keyboard: <kbd>1</kbd> to <kbd>5</kbd> or <kbd>A</kbd> to <kbd>E</kbd> to select, <kbd>Enter</kbd> to check or go to the next question.</li>
     </ul>
     <h2 class="sub">How the questions are written</h2>
-    <p>Every question is original and written against the public exam guide. None come from the real exam, paid courses, or dumps. Each one is a hands-on operations scenario: what you would configure, check, or fix, and why the other options fall short. Most questions test long-standing operations skills, and a few cover newer services that the exam guide names.</p>
-    <p>The wording follows AWS exam conventions, such as full service names and qualifiers like LEAST operational overhead. The bank focuses on native AWS tools. It has no Terraform questions, even though Skill 3.1.6 of the guide names Terraform, so read up on its basics separately.</p>
-    <p>The questions were drafted with AI help. An AI-run check then compared each question with current AWS documentation, using one main source per question, and fixed what it found. The author then reviewed the questions, but mistakes are still possible. This is practice, not a predictor of your exam result. For the closest look at real exam style, use the Official Practice Question Set linked above.</p>
-    <p>The whole question bank is open source on <a href="${REPO}" target="_blank" rel="noopener">GitHub</a>.</p>
+    <p>Every question is original and written against the public exam guide. None come from the real exam, paid courses, or dumps. The questions were drafted with AI help, then checked one by one against the exam guide and AWS documentation. The whole question bank is open source on <a href="${REPO}" target="_blank" rel="noopener">GitHub</a>.</p>
     <p>Think a question is wrong? <a href="${REPO}/issues/new/choose" target="_blank" rel="noopener">Report it</a> with the question ID shown above each question.</p>
     <h2 class="sub">Why it's free</h2>
     <p>Practice should be free for anyone who learns with their heart and is willing to put in the time. No sign-up, no ads, no paywall.</p>`;
@@ -271,7 +250,7 @@ function results() {
     <h1>Results</h1>
     ${graded.length ? `
       <div class="score">${score}%</div>
-      <p class="muted">${right} of ${graded.length} correct.${S.mode === 'mock' ? ' The real exam reports a scaled score (100 to 1,000, pass 720) that is not a simple percentage. These are original practice questions, not exam questions, so use this score to find weak areas, not to predict your result.' : ''}</p>
+      <p class="muted">${right} of ${graded.length} correct.${S.mode === 'mock' ? ` The real exam reports a scaled score (100 to 1,000, pass ${EXAM.pass}) that is not a simple percentage. These are original practice questions, not exam questions, so use this score to find weak areas, not to predict your result.` : ''}</p>
       <div class="rows">${rows}</div>
       <div class="actions">${actions}</div>
       <h2>Review</h2>${review}` : `<p class="muted">No questions answered.</p><div class="actions">${actions}</div>`}`;

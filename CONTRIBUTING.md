@@ -38,7 +38,7 @@ Questions use the exam's format: a short scenario, a clear requirement, and plau
 
 ## Question format
 
-Questions live in `data/d1.js` to `data/d5.js`, one file per exam domain:
+Questions live in `data/d1.js` to `data/d5.js`, one file per exam domain. Exam details such as the domain names and weights live in `exam.js`, and `app.js`, `check.js` and `style.css` are shared with the other practice sites.
 
 ```js
 { id: "d2-66", d: 2,
