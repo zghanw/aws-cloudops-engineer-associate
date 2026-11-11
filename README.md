@@ -99,6 +99,7 @@ If this helped you prepare, a star helps other candidates find it.
 ## More free AWS practice
 
 - [AIB-C01 Practice](https://zghanw.github.io/aws-ai-business-strategist/) for the AWS Certified AI Business Strategist exam: 340 questions and a timed mock exam, built the same way.
+- [SCS-C03 Practice](https://zghanw.github.io/aws-security-specialty/) for the AWS Certified Security - Specialty exam: 300 questions and a timed mock exam, built the same way.
 
 ## Disclaimer
 
