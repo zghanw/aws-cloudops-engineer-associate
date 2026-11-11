@@ -29,7 +29,7 @@ Questions use the exam's format: a short scenario, a clear requirement, and plau
 **The options.** This is where most practice tests go wrong.
 
 - Multiple choice has exactly 4 options. Multiple response has 5 options with 2 correct, like the real exam.
-- Test native AWS features. Don't write a question where a third-party tool, such as Terraform, is the answer.
+- Test native AWS features first. Make a third-party tool, such as Terraform, the answer only for the skills where the exam guide names it.
 - Write all options in the same form: all imperatives, all noun phrases, or all "A rule that..." Split multi-step actions into sentences ("Create a rule. Add a target."), and use "to" for a purpose instead of "so that".
 - Keep them about the same length. The right answer must not be the longest, the most detailed, or the most carefully hedged. `node check.js` fails the build if right answers stand out by length.
 - Every wrong option should be a real action that fails one requirement in the scenario, for example one that is reactive instead of preventive, needs custom code when a managed feature exists, breaks least privilege, or doesn't work the way the option claims. No joke options.

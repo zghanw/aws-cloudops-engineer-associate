@@ -29,8 +29,7 @@
       <li>Question types: multiple choice (1 correct out of 4) and multiple response (2 or more correct out of 5 or more; you must pick all of them to get credit). There are no exam labs.</li>
       <li>Scaled score 100 to 1,000; <b>720 to pass</b>. Scoring is compensatory, so you don't need to pass each domain. There's no penalty for guessing, so answer every question.</li>
       <li>SOA-C03 replaced SOA-C02 (the SysOps Administrator exam) on 30 Sep 2025. The cost and performance domain was folded into Domain 1.</li>
-      <li>The 2026 exam guide revisions added Amazon Bedrock, AWS DevOps Agent, AWS Security Agent, Kiro, and the AWS Health Dashboard to the in-scope services, and Amazon S3 Files to the skills. Guide changes reach the exam at least 1 month after they're published.</li>
-      <li>Skill 3.1.6 names third-party tools such as Terraform. This site's questions use native AWS tools only, so read up on Terraform basics separately.</li>`,
+      <li>The 2026 exam guide revisions added Amazon Bedrock, AWS DevOps Agent, AWS Security Agent, Kiro, and the AWS Health Dashboard to the in-scope services, and Amazon S3 Files to the skills. Guide changes reach the exam at least 1 month after they're published.</li>`,
     resources: `
       <li>${link(guide, 'SOA-C03 exam guide')}, including the in-scope and out-of-scope service lists</li>
       <li>${link('https://aws.amazon.com/certification/certified-cloudops-engineer-associate/', 'AWS Certified CloudOps Engineer - Associate certification page')}</li>

@@ -68,8 +68,6 @@ Every question is original and written against the public [SOA-C03 exam guide](h
 
 The questions were drafted with AI help, then checked one by one against the exam guide and AWS documentation.
 
-The wording follows AWS exam conventions. A recently launched feature is the right answer only where the exam guide names it, and the bank sticks to native AWS tools. It has no Terraform questions, even though Skill 3.1.6 of the guide names Terraform, so read up on its basics separately.
-
 Question bank last reviewed: 9 November 2026, against exam guide version 1.2 (published 29 October 2026).
 
 Think a question is wrong? [Open an issue](https://github.com/zghanw/aws-cloudops-engineer-associate/issues/new/choose) with the question ID shown above each question. You don't need to write any code.
